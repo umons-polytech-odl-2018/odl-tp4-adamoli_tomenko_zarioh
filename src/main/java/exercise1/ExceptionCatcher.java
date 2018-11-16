@@ -8,6 +8,11 @@ public class ExceptionCatcher {
 	}
 
 	void executeExceptionThrowerSafely(int value) {
-		exceptionThrower.throwACustomExceptionWhenValueIs42(value);
+		try {
+			exceptionThrower.throwACustomExceptionWhenValueIs42(value);	//statements that may cause an exception
+		} finally {
+
+		}
+
 	}
 }
