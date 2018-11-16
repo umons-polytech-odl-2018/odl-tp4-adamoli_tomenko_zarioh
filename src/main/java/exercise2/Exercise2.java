@@ -8,29 +8,24 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
-public class Exercise2 {
-	public static void save(Classroom classroom, Path filePath) {
+public class Exercise2 implements Serializable{
+	public static void save(Classroom classroom, Path filePath) throws IOException{
 		try(OutputStream output = Files.newOutputStream(filePath)){
 			ObjectOutput objectOutput = new ObjectOutputStream(output);
 			objectOutput.writeObject((classroom));
-		} catch (Exception e){}
+		}
 
 	}
-
-	public static Classroom load(Path filePath) {
-		ArrayList<String> scripts = new ArrayList<String>();
-		Charset utf8Charset = Charset.forName("UTF-8");
-		try(BufferedReader reader = Files.newBufferedReader(filePath, utf8Charset)){
-			reader.lines().forEach(line->scripts.add(line));
-		}catch (Exception e){}
-
-		Teacher teacher = new Teacher(scripts.get(0), scripts.get(1), LocalDate.parse(scripts.get(2)), new PhoneNumber(scripts.get(3)), new Location(scripts.get(4), scripts.get(5));
-
-		return null;
+	public static Classroom load(Path filePath) throws IOException, ClassNotFoundException {
+		try(InputStream output = Files.newInputStream(filePath)){
+			ObjectInput objectOutput = new ObjectInputStream(output);
+			return (Classroom) objectOutput.readObject();
+		}
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Teacher teacher = new Teacher("Claire", "Barnett",
 			LocalDate.of(1975, 3, 7), new PhoneNumber("+32 65 123 456"),
 			new Location("Ho.23", "Houdain"));

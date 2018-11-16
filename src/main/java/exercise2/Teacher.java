@@ -1,8 +1,9 @@
 package exercise2;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Teacher extends Person {
+public class Teacher extends Person implements Serializable {
 	private final PhoneNumber officePhone;
 	private final Location officeLocation;
 

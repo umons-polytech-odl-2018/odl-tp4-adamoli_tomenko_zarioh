@@ -1,9 +1,10 @@
 package exercise2;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Serializable {
 	private final String firstName;
 	private final String lastName;
 	private final LocalDate birthDate;
