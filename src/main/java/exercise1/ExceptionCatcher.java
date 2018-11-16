@@ -10,7 +10,7 @@ public class ExceptionCatcher {
 	void executeExceptionThrowerSafely(int value) {
 		try {
 			exceptionThrower.throwACustomExceptionWhenValueIs42(value);	//statements that may cause an exception
-		} finally {
+		} catch(RuntimeException e) {
 
 		}
 
