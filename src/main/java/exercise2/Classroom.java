@@ -39,4 +39,6 @@ public class Classroom implements Serializable {
 	public int hashCode() {
 		return Objects.hash(teacher, students);
 	}
-}
+}//encore une fois le implément seriasable
+//rien de particulier encore une fois, à part les opérations override
+//sur les fonctions qui agissent sur les objets

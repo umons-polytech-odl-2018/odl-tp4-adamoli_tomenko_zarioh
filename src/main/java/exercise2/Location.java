@@ -18,4 +18,4 @@ public class Location implements Serializable {
 	public String getBuilding() {
 		return building;
 	}
-}
+}//meme principe que phone number et person faut implement seriazable
